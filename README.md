@@ -30,7 +30,7 @@ Send Documents for review before submitting.
 <b>Bounty List (bugs):</b>
 To be announced...
 
-<b>Contributors:</b>
+<b>Contributors:</b><br />
 Stewart Taylor<br />
 https://github.com/StewartTaylor<br />
 
