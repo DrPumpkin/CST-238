@@ -16,10 +16,10 @@ C++, Qt, QML, Javascript
 
 ![Alt text](/Images/Week-1-screenshot.png)
 <br />
-<b>Hello Kitty (Lab 1)</b>
+<b>Hello Kitty (Lecture 1)</b>
 
 
-<b>Installation:</b>
+<b>Installation:</b> <br \>
 1.  Install Qt 5.5+ <br \>
 2.  Open project <br \>
 3.  Build And Run <br \>
