@@ -4,73 +4,78 @@ import QtQuick.Window 2.2
 Window {
     id:topWindow
     visible: true
+    property bool isRotated:false
     Rectangle{
-        id:background
-        anchors.fill: parent
         color:"grey"
-    }
+        anchors.fill:parent
 
+    }
     ColorRect{
         id:blueRect
+        color:"blue"
         anchors.left:parent.left
         anchors.top:parent.top
-        color:"blue"
-        border.width: 8
         mouseArea.onClicked:{
-            topGradient.color = color;
+            topGradient.color = color
+            topWindow.isRotated = false
         }
     }
     ColorRect{
         id:yellowRect
+        color:"yellow"
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.top:parent.top
-        color:"yellow"
         mouseArea.onClicked:{
-            topGradient.color = color;
+            topGradient.color = color
+            topWindow.isRotated = false
         }
     }
     ColorRect{
         id:redRect
+        color:"red"
         anchors.right:parent.right
         anchors.top:parent.top
-        color:"red"
         mouseArea.onClicked:{
-            topGradient.color = color;
+            topGradient.color = color
+            topWindow.isRotated = false
         }
     }
 
     ColorRect{
-        id:greenRect
+        id:grenRect
+        color:"green"
         anchors.left:parent.left
         anchors.bottom:parent.bottom
-        color:"green"
         mouseArea.onClicked:{
-            bottomGradient.color = color;
+            bottomGradient.color = color
+            topWindow.isRotated = true
         }
     }
     ColorRect{
         id:orangeRect
+        color:"orange"
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.bottom:parent.bottom
-        color:"orange"
         mouseArea.onClicked:{
-            bottomGradient.color = color;
+            bottomGradient.color = color
+            topWindow.isRotated = true
         }
     }
     ColorRect{
         id:purpleRect
+        color:"purple"
         anchors.right:parent.right
         anchors.bottom:parent.bottom
-        color:"purple"
         mouseArea.onClicked:{
-            bottomGradient.color = purpleRect.color;
+            bottomGradient.color = color
+            topWindow.isRotated = true
         }
     }
 
     Rectangle{
-        id:circle
-        rotation:90
-        anchors.centerIn: background
+        id:centerCircle
+        rotation: isRotated ? 90:0
+        anchors.centerIn: parent
         width:parent.width/4
         height:width
         radius:width/2
@@ -86,15 +91,21 @@ Window {
                 color: "#ffffff";
             }
         }
-        border.color: "black"
-        border.width: 2
+        Behavior on rotation{
+            NumberAnimation{
+                duration:2000
+            }
+        }
 
+        color:"white"
+        border.width: 2
     }
 
+
     Component.onCompleted: {
-        topWindow.width = Screen.width/2
-        topWindow.height = Screen.height/2
-        topWindow.x =Screen.width/4
-        topWindow.y =Screen.height/4
+     topWindow.width = Screen.width/2;
+     topWindow.height = Screen.height/2;
+     topWindow.x = Screen.width/4;
+     topWindow.y  = Screen.height/4
     }
 }
