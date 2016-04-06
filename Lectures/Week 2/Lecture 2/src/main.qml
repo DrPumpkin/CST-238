@@ -13,7 +13,8 @@ Window {
     }
     DropArea{
         id:dropArea
-        anchors.centerIn: parent
+        x:parent.width/2 -centerCircle.width/2
+        y:parent.height/2 -centerCircle.height/2
         width:parent.width/4
         height:width
         Drag.dragType: Drag.Automatic
@@ -39,6 +40,7 @@ Window {
         Drag.active: mouseArea.drag.active
         maximumDragX: parent.width
         maximumDragY: parent.height
+        anchors.top: parent.top
         x:0
         y:0
         Drag.hotSpot.x: 32
@@ -89,6 +91,7 @@ Window {
         maximumDragY: parent.height
         x:0
         y:parent.height-greenRect.height
+        mouseArea.drag.target:centerCircle
         mouseArea.onClicked:{
             centerCircle.bottomGradient.color = color
             topWindow.isRotated = true
