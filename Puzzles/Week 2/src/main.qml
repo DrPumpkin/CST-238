@@ -10,5 +10,6 @@ ApplicationWindow {
     Board
     {
         id: brd_board
+
     }
 }
