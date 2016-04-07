@@ -2,5 +2,7 @@
     <qresource prefix="/">
         <file>main.qml</file>
         <file>Board.qml</file>
+        <file>img/letter_o.png</file>
+        <file>img/letter_x.png</file>
     </qresource>
 </RCC>
