@@ -1,9 +1,8 @@
 #include "person.h"
 
 person::person()
-    :m_age(55), m_name("Stu"), m_is_good_person(false)
+    :m_name("Russ"), m_age(21)
 {
-    qDebug() << "I am the constructor.";
 
 }
 

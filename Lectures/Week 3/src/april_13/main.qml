@@ -7,41 +7,59 @@ ApplicationWindow {
     visible: true
     width: 640
     height: 480
-    title: qsTr("Open Your Eyes and Look North")
+    title: qsTr("Zoo")
 
 
     Rectangle
     {
-        id: rect_big_wrapper
+        id: big_wrapper
         anchors.fill: parent
-
 
         Text
         {
-            id: txt_myname
-            text: MyTeacher.get_name()
-            font.pixelSize: 36
+            id: txt_name
+            text: Patrick.get_name()
             font.family: "BELLABOO"
+            font.pixelSize: 36
+            color: "red"
+
+            NumberAnimation on x{
+                duration: 8000
+                from: 0
+                to: 300
+                loops: Animation.Infinite
+                //easing.type: Easing.InOutQ
+            }
+
+            NumberAnimation on y{
+                duration: 8000
+                from: 0
+                to: 300
+                loops: Animation.Infinite
+                //easing.type: Easing.InOutQ
+            }
+
         }
 
         TextInput
         {
             id: ti_usernamefield
-            focus: true
             font.family: "BELLABOO"
-            color: "purple"
             font.pixelSize: 48
-            anchors.horizontalCenter: rect_big_wrapper.horizontalCenter
-            anchors.verticalCenter: rect_big_wrapper.verticalCenter
+            color: "green"
+            focus: true
+
+            anchors.horizontalCenter: big_wrapper.horizontalCenter
+            anchors.verticalCenter: big_wrapper.verticalCenter
 
             Keys.onReturnPressed:
             {
-                MyTeacher.set_name(ti_usernamefield.text)
-                txt_myname.text = MyTeacher.get_name()
-                console.log("I am the keyboard...someone pressed me!");
+                Patrick.set_name(ti_usernamefield.text);
+                txt_name.text = Patrick.get_name();
+                console.log("Arthur THINKS this will work. ");
             }
-
         }
     }
+
 
 }

@@ -3,7 +3,6 @@
 
 #include <QString>
 #include <QObject>
-#include <QDebug>
 
 class person : public QObject
 {
@@ -18,7 +17,6 @@ public slots:
 private:
     QString m_name;
     int m_age;
-    bool m_is_good_person;
 
 };
 
