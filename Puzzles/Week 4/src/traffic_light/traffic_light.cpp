@@ -13,16 +13,6 @@ Traffic_Light::Traffic_Light()
     qDebug() << "Traffic light ctor.";
 }
 
-Light &Traffic_Light::get_light(int index)
-{
-    return m_light[index];
-}
-
-int Traffic_Light::get_light_color(int index)
-{
-    return m_light[index].get_color();
-}
-
 bool Traffic_Light::get_light_on(int index)
 {
     return m_light[index].get_light();

@@ -13,8 +13,6 @@ public:
     Traffic_Light();
 
 public slots:
-    Light &get_light(int index);
-    int get_light_color(int index);
     bool get_light_on(int index);
     void toggle_light(int index);
 
