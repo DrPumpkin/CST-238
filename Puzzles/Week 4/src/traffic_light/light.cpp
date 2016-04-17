@@ -1,6 +1,7 @@
 #include "light.h"
 
 Light::Light()
+    :m_light_on(true), m_color(RED)
 {
     qDebug() << "Light ctor.";
 }
@@ -10,9 +11,9 @@ void Light::set_color(Color color)
     m_color = color;
 }
 
-Color Light::get_color()
+int Light::get_color()
 {
-    return m_color;
+    return static_cast<int>(m_color);
 }
 
 void Light::set_light(bool is_on)

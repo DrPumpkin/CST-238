@@ -2,7 +2,30 @@
 
 Traffic_Light::Traffic_Light()
 {
+    for(int i = 0; i < 3; i++)
+    {
+        m_light[i].set_color(static_cast<Color>(i));
+        m_light[i].set_light(false);
+    }
+
+    m_light[0].set_light(true); // Red light
+
     qDebug() << "Traffic light ctor.";
+}
+
+Light &Traffic_Light::get_light(int index)
+{
+    return m_light[index];
+}
+
+int Traffic_Light::get_light_color(int index)
+{
+    return m_light[index].get_color();
+}
+
+bool Traffic_Light::get_light_on(int index)
+{
+    return m_light[index].get_light();
 }
 
 void Traffic_Light::toggle_light(int index)

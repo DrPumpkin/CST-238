@@ -15,14 +15,15 @@ class Light : public QObject{
     Q_OBJECT
 public:
     Light();
+public slots:
 
     void set_color(Color color);
-    Color get_color();
+    int get_color();
     void set_light(bool is_on);
     bool get_light();
 private:
-    Color m_color;
     bool m_light_on;
+    Color m_color;
 };
 
 #endif // LIGHT_H
