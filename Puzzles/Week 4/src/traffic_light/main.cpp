@@ -8,6 +8,9 @@ int main(int argc, char *argv[])
     QGuiApplication app(argc, argv);
 
     QQmlApplicationEngine engine;
+    QCoreApplication::setApplicationName("TrafficLight");
+    QCoreApplication::setOrganizationName("Chessgames");
+    QCoreApplication::setOrganizationDomain(".com");
 
     Traffic_Light traffic_light;
 

@@ -1,5 +1,6 @@
 import QtQuick 2.6
 import QtQuick.Controls 1.5
+import Qt.labs.settings 1.0
 
 ApplicationWindow {
     visible: true
@@ -14,6 +15,14 @@ ApplicationWindow {
         id: big_wrapper
         anchors.fill: parent
 
+        Settings
+        {
+            id: settings
+            property alias red_color: rect_red_light.color
+            property alias yellow_color: rect_yellow_light.color
+            property alias green_color: rect_green_light.color
+        }
+
         Rectangle
         {
             id: rect_traffic_light_head
@@ -23,6 +32,8 @@ ApplicationWindow {
             height: parent.height * .9;
             width: parent.width/3;
             border.color: "brown"
+
+            //transform: Scale{xScale: .3; yScale: .3}
 
             Rectangle
             {
