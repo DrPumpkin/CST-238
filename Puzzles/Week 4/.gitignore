@@ -25,6 +25,8 @@ ui_*.h
 Makefile*
 *build-*
 
+*/.DS_STORE*
+
 # QtCreator
 
 *.autosave
