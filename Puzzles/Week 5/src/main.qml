@@ -1,5 +1,6 @@
 import QtQuick 2.6
 import QtQuick.Controls 1.5
+import QtMultimedia 5.6
 
 ApplicationWindow {
     visible: true
@@ -11,6 +12,12 @@ ApplicationWindow {
     {
         id: big_wrapper
         anchors.fill: parent
+
+        Audio
+        {
+            id: song_burning_the_nicotine_armoire
+            source: "../songs/Dance Gavin Dance - Burning Down the Nicotine Armoire (audio-cutter.com).mp3"
+        }
 
         Image {
             id: img_iPod
@@ -122,6 +129,7 @@ ApplicationWindow {
 
                     onClicked:
                     {
+                        song_burning_the_nicotine_armoire.play()
                         console.log("Play button clicked!")
                     }
                 }
