@@ -22,6 +22,29 @@ ApplicationWindow {
 
             Rectangle
             {
+                id: iPod_screen
+                x: 50
+                y: 31
+                width: 258 - x
+                height: 187 - y
+                color: "orange"
+
+                MouseArea
+                {
+                    id: ma_screen
+                    anchors.fill: parent
+                    onClicked:
+                    {
+                        console.log("x = " + ma_screen.mouseX)
+                        console.log("y = " + ma_screen.mouseY)
+                        console.log("Screen clicked!")
+                    }
+
+                }
+            }
+
+            Rectangle
+            {
                 id: iPod_back_button
                 x:80
                 y: 250
@@ -48,11 +71,7 @@ ApplicationWindow {
                 y: 262
                 width: 228 - x
                 height: 331 - y
-//                x:80
-//                y: 250
-//                width: 40
-//                height: 83
-                //color: "transparent"
+                color: "transparent"
 
                 MouseArea
                 {
@@ -61,8 +80,6 @@ ApplicationWindow {
 
                     onClicked:
                     {
-                        console.log("x = " + ma_mousearea_forward.mouseX)
-                        console.log("y = " + ma_mousearea_forward.mouseY)
                         console.log("Forward button clicked!")
                     }
                 }
@@ -75,11 +92,7 @@ ApplicationWindow {
                 y: 225
                 width: 47
                 height: 263 - y
-//                x:80
-//                y: 250
-//                width: 40
-//                height: 83
-                //color: "transparent"
+                color: "transparent"
 
                 MouseArea
                 {
@@ -88,8 +101,6 @@ ApplicationWindow {
 
                     onClicked:
                     {
-                        console.log("x = " + ma_mousearea_menu.mouseX)
-                        console.log("y = " + ma_mousearea_menu.mouseY)
                         console.log("Menu button clicked!")
                     }
                 }
@@ -102,11 +113,7 @@ ApplicationWindow {
                 y: 330
                 width: 47
                 height: 368 - y
-//                x:80
-//                y: 250
-//                width: 40
-//                height: 83
-                //color: "transparent"
+                color: "transparent"
 
                 MouseArea
                 {
@@ -115,8 +122,6 @@ ApplicationWindow {
 
                     onClicked:
                     {
-                        console.log("x = " + ma_mousearea_play.mouseX)
-                        console.log("y = " + ma_mousearea_play.mouseY)
                         console.log("Play button clicked!")
                     }
                 }
