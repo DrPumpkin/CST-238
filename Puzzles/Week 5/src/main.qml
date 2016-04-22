@@ -51,7 +51,7 @@ ApplicationWindow {
                     id: txt_screen_song
                     //anchors.fill: parent
                     y: 0
-                    text: "Song: " + songs[song_index]
+                    text: is_playing === true ? "Song: " + songs[song_index] : ""
                     font.family: "BELLABOO"
                     font.pointSize: 16
                     wrapMode: Text.Wrap
@@ -61,7 +61,7 @@ ApplicationWindow {
                 {
                     id: txt_screen_band
                     anchors.top: txt_screen_song.bottom
-                    text: "Band: " + bands[song_index]
+                    text: is_playing === true ? "Band: " + bands[song_index] : ""
                     font.family: "BELLABOO"
                     font.pointSize: 16
                     wrapMode: Text.Wrap
@@ -162,12 +162,16 @@ ApplicationWindow {
                         if(is_playing === false)
                         {
                             is_playing = true;
+                            txt_screen_song.text = "Song: " + songs[song_index]
+                            txt_screen_band.text = "Band: " + bands[song_index]
                             song_burning_the_nicotine_armoire.play()
                         }
                         else
                         {
                             is_playing = false;
                             song_burning_the_nicotine_armoire.pause()
+                            txt_screen_song.text = "Paused"
+                            txt_screen_band.text = ""
                         }
                         console.log("Play button clicked!")
                     }
