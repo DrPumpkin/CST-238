@@ -8,6 +8,8 @@ ApplicationWindow {
     height: 480
     title: qsTr("iPod")
 
+    property bool is_playing: false
+
     Rectangle
     {
         id: big_wrapper
@@ -129,7 +131,16 @@ ApplicationWindow {
 
                     onClicked:
                     {
-                        song_burning_the_nicotine_armoire.play()
+                        if(is_playing === false)
+                        {
+                            is_playing = true;
+                            song_burning_the_nicotine_armoire.play()
+                        }
+                        else
+                        {
+                            is_playing = false;
+                            song_burning_the_nicotine_armoire.pause()
+                        }
                         console.log("Play button clicked!")
                     }
                 }
