@@ -16,6 +16,9 @@ ApplicationWindow {
                              "Open Your Eyes And Look North"]
     property variant bands: ["Dance Gavin Dance", "Dance Gavin Dance", "Dance Gavin Dance"]
     property int song_index: 0
+    property variant sources: ["../songs/Dance Gavin Dance - Burning Down the Nicotine Armoire (audio-cutter.com).mp3",
+                               "../songs/Dance Gavin Dance - Happiness.mp3"]
+    property int number_of_songs: 2
 
     Rectangle
     {
@@ -24,9 +27,8 @@ ApplicationWindow {
 
         Audio
         {
-            id: song_burning_the_nicotine_armoire
-            source: "../songs/Dance Gavin Dance - Burning Down the Nicotine Armoire (audio-cutter.com).mp3"
-
+            id: song_current
+            source: sources[song_index]
         }
 
         Image {
@@ -96,6 +98,15 @@ ApplicationWindow {
 
                     onClicked:
                     {
+                        if(song_index > 0)
+                        {
+                            song_index--
+                            song_current.source = sources[song_index]
+                            song_current.play()
+                        }
+
+                        else
+                            console.log("Reached beginning of playlist")
                         console.log("Back button clicked!")
                     }
                 }
@@ -117,6 +128,15 @@ ApplicationWindow {
 
                     onClicked:
                     {
+                        if(song_index < (number_of_songs - 1))
+                        {
+                            song_index++
+                            song_current.source = sources[song_index]
+                            song_current.play()
+                        }
+
+                        else
+                            console.log("Reached end of playlist")
                         console.log("Forward button clicked!")
                     }
                 }
@@ -164,12 +184,14 @@ ApplicationWindow {
                             is_playing = true;
                             txt_screen_song.text = "Song: " + songs[song_index]
                             txt_screen_band.text = "Band: " + bands[song_index]
-                            song_burning_the_nicotine_armoire.play()
+                            song_current.play()
+                            //song_burning_the_nicotine_armoire.play()
                         }
                         else
                         {
                             is_playing = false;
-                            song_burning_the_nicotine_armoire.pause()
+                            song_current.pause()
+                            //song_burning_the_nicotine_armoire.pause()
                             txt_screen_song.text = "Paused"
                             txt_screen_band.text = ""
                         }

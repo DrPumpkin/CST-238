@@ -51,7 +51,11 @@ OBJECTS       = release/main.o \
 		release/qrc_svg.o \
 		release/qrc_music.o
 
-DIST          =   ../src/main.cpp
+DIST          = ../songs/Dance \
+		Gavin \
+		Dance \
+		- \
+		Happiness.mp3  ../src/main.cpp
 QMAKE_TARGET  = ipod
 DESTDIR        = release/ #avoid trailing-slash linebreak
 TARGET         = ipod.exe
