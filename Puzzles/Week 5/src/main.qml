@@ -10,6 +10,13 @@ ApplicationWindow {
 
     property bool is_playing: false
 
+    // Possibly use hash table instead...iffy on qml's implementation of them, though (basically tuples and cannot change them)
+    property variant songs: ["Burning the Nicotine Armoire",
+                             "Surprise! I'm From Cuba, Everyone Else Has One Brain.",
+                             "Open Your Eyes And Look North"]
+    property variant bands: ["Dance Gavin Dance", "Dance Gavin Dance", "Dance Gavin Dance"]
+    property int song_index: 0
+
     Rectangle
     {
         id: big_wrapper
@@ -19,6 +26,7 @@ ApplicationWindow {
         {
             id: song_burning_the_nicotine_armoire
             source: "../songs/Dance Gavin Dance - Burning Down the Nicotine Armoire (audio-cutter.com).mp3"
+
         }
 
         Image {
@@ -38,6 +46,26 @@ ApplicationWindow {
                 height: 187 - y
                 color: "orange"
 
+                Text
+                {
+                    id: txt_screen_song
+                    //anchors.fill: parent
+                    y: 0
+                    text: "Song: " + songs[song_index]
+                    font.family: "BELLABOO"
+                    font.pointSize: 16
+                    wrapMode: Text.Wrap
+                }
+
+                Text
+                {
+                    id: txt_screen_band
+                    anchors.top: txt_screen_song.bottom
+                    text: "Band: " + bands[song_index]
+                    font.family: "BELLABOO"
+                    font.pointSize: 16
+                    wrapMode: Text.Wrap
+                }
                 MouseArea
                 {
                     id: ma_screen
