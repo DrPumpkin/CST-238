@@ -12,13 +12,15 @@ ApplicationWindow {
 
     // Possibly use hash table instead...iffy on qml's implementation of them, though (basically tuples and cannot change them)
     property variant songs: ["Burning the Nicotine Armoire",
-                             "Surprise! I'm From Cuba, Everyone Else Has One Brain.",
-                             "Open Your Eyes And Look North"]
+                             "Happiness",
+                             "Open Your Eyes And Look North",
+                             "Surprise! I'm From Cuba, Everyone Else Has One Brain."]
     property variant bands: ["Dance Gavin Dance", "Dance Gavin Dance", "Dance Gavin Dance"]
     property int song_index: 0
     property variant sources: ["../songs/Dance Gavin Dance - Burning Down the Nicotine Armoire (audio-cutter.com).mp3",
-                               "../songs/Dance Gavin Dance - Happiness.mp3"]
-    property int number_of_songs: 2
+                               "../songs/Dance Gavin Dance - Happiness.mp3",
+                               "../songs/Dance Gavin Dance - Open Your Eyes and Look North.mp3"]
+    property int number_of_songs: 3
 
     Rectangle
     {
@@ -102,6 +104,8 @@ ApplicationWindow {
                         {
                             song_index--
                             song_current.source = sources[song_index]
+                            txt_screen_song.text = "Song: " + songs[song_index]
+                            txt_screen_band.text = "Band: " + bands[song_index]
                             song_current.play()
                         }
 
@@ -132,6 +136,8 @@ ApplicationWindow {
                         {
                             song_index++
                             song_current.source = sources[song_index]
+                            txt_screen_song.text = "Song: " + songs[song_index]
+                            txt_screen_band.text = "Band: " + bands[song_index]
                             song_current.play()
                         }
 
