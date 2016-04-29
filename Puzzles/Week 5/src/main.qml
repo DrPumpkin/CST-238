@@ -100,17 +100,6 @@ ApplicationWindow {
 
                     onClicked:
                     {
-                        if(song_index > 0)
-                        {
-                            song_index--
-                            song_current.source = sources[song_index]
-                            txt_screen_song.text = "Song: " + songs[song_index]
-                            txt_screen_band.text = "Band: " + bands[song_index]
-                            song_current.play()
-                        }
-
-                        else
-                            console.log("Reached beginning of playlist")
                         console.log("Back button clicked!")
                     }
                 }
@@ -132,17 +121,6 @@ ApplicationWindow {
 
                     onClicked:
                     {
-                        if(song_index < (number_of_songs - 1))
-                        {
-                            song_index++
-                            song_current.source = sources[song_index]
-                            txt_screen_song.text = "Song: " + songs[song_index]
-                            txt_screen_band.text = "Band: " + bands[song_index]
-                            song_current.play()
-                        }
-
-                        else
-                            console.log("Reached end of playlist")
                         console.log("Forward button clicked!")
                     }
                 }
@@ -172,10 +150,10 @@ ApplicationWindow {
             Rectangle
             {
                 id: iPod_play_button
-                x: 130
-                y: 330
-                width: 47
-                height: 368 - y
+
+                // Use console.log() to find appropriate values of
+                // x,y,width and height for mouse area
+
                 color: "transparent"
 
                 MouseArea
@@ -191,15 +169,10 @@ ApplicationWindow {
                             txt_screen_song.text = "Song: " + songs[song_index]
                             txt_screen_band.text = "Band: " + bands[song_index]
                             song_current.play()
-                            //song_burning_the_nicotine_armoire.play()
                         }
                         else
                         {
-                            is_playing = false;
-                            song_current.pause()
-                            //song_burning_the_nicotine_armoire.pause()
-                            txt_screen_song.text = "Paused"
-                            txt_screen_band.text = ""
+                            // Write pause code here
                         }
                         console.log("Play button clicked!")
                     }
