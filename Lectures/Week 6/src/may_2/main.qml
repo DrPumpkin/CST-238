@@ -76,6 +76,8 @@ ApplicationWindow {
             width: 75
             opacity: 1
 
+            z:5
+
             anchors.horizontalCenter: big_wrapper.horizontalCenter
             anchors.bottom: big_wrapper.bottom
             anchors.bottomMargin: 60
@@ -84,7 +86,6 @@ ApplicationWindow {
             {
                 id: ma_mousearea
                 anchors.fill: parent
-                z: 5
 
                 onPressed:
                 {
