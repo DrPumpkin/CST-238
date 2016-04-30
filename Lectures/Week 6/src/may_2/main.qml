@@ -11,6 +11,10 @@ ApplicationWindow {
     height: 480
     title: qsTr("Poor Man's Snapchat")
 
+    property bool can_paint: false
+    property int xpos
+    property int ypos
+
     Camera
     {
         id: cam_selfie
@@ -20,6 +24,43 @@ ApplicationWindow {
     {
         id: big_wrapper
         anchors.fill: parent
+
+        Canvas
+        {
+            id: canvas_canvas
+            anchors.fill: parent
+
+            z: 3
+
+            onPaint:
+            {
+                var ctx = getContext("2d")
+
+                ctx.fillStyle = "red"
+                ctx.fillRect(xpos-1, ypos-1, 3, 3)
+
+            }
+            MouseArea{
+                anchors.fill: parent
+                onPressed: {
+                    xpos = mouseX
+                    ypos = mouseY
+                    canvas_canvas.requestPaint()
+                }
+                onMouseXChanged: {
+                    xpos = mouseX
+                    ypos = mouseY
+                    canvas_canvas.requestPaint()
+                }
+                onMouseYChanged: {
+                    xpos = mouseX
+                    ypos = mouseY
+                    canvas_canvas.requestPaint()
+                }
+
+                preventStealing: true
+            }
+        }
 
         VideoOutput
         {
@@ -43,6 +84,7 @@ ApplicationWindow {
             {
                 id: ma_mousearea
                 anchors.fill: parent
+                z: 5
 
                 onPressed:
                 {
@@ -57,7 +99,11 @@ ApplicationWindow {
                 onClicked:
                 {
                     se_shutter_camera.play()
+                    cam_selfie.imageCapture.captureToLocation("profile_pic")
+                    //cam_selfie.imageCapture.capture()
                 }
+
+                preventStealing: false
             }
         }
 
