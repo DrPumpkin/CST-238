@@ -1,5 +1,0 @@
-<RCC>
-    <qresource prefix="/">
-        <file>../../sound_effects/shutter_camera.mp3</file>
-    </qresource>
-</RCC>
