@@ -1,6 +1,7 @@
 import QtQuick 2.6
 import QtQuick.Controls 1.5
 import QtQuick.Particles 2.0
+import QtQuick.Window 2.0
 import QtMultimedia 5.6
 
 ApplicationWindow {
@@ -8,6 +9,29 @@ ApplicationWindow {
     width: 640
     height: 480
     title: qsTr("May 4th")
+
+    Timer
+    {
+        id: tmr_twenty_bucks
+        interval: 42000
+        running: true
+        onTriggered:
+        {
+            img_twenty_bucks.visible = true
+        }
+    }
+
+    Timer
+    {
+        id: tmr_tv
+        interval: 48000
+        running:  true
+        onTriggered:
+        {
+            img_tv.visible = true
+            vo_tv.visible = true
+        }
+    }
 
     Rectangle
     {
@@ -21,6 +45,71 @@ ApplicationWindow {
             height: parent.height
             width: parent.width}
 
+        AnchorChanges
+        {
+            target: img_twenty_bucks
+            anchors.right: big_wrapper.right
+        }
+
+        SequentialAnimation
+        {
+            id: sa_dance
+            running: true
+            loops: Animation.Infinite
+
+            ColorAnimation {
+                target: rect_1
+                properties: "color"
+                from: "white"
+                to: "orange"
+                duration: 2000
+            }
+
+            PropertyAnimation
+            {
+                target: rect_1
+                properties: "width"
+                from: rect_1.width
+                to: 1
+                duration: 5000
+            }
+
+            PropertyAnimation
+            {
+                target: rect_1
+                properties: "width"
+                from: 1
+                to: rect_1.width
+                duration: 5000
+            }
+
+            RotationAnimation
+            {
+                target: rect_1
+                from: 0
+                to: 360
+                duration: 5000
+            }
+
+            NumberAnimation
+            {
+                target: rect_1
+                from: 0
+                to: 200
+                properties: "x"
+                duration: 2000
+            }
+
+            ScaleAnimator
+            {
+                target: img_twenty_bucks
+                from: 0.5
+                to: 1
+                easing.type: Easing.OutBounce;
+                duration: 1000
+            }
+        }
+
         Image
         {
             id: img_twenty_bucks
@@ -29,7 +118,19 @@ ApplicationWindow {
             width: 200
             anchors.left: img_background.left
             anchors.verticalCenter: img_background.verticalCenter
+            visible: false
         }
+
+        Rectangle
+        {
+            id: rect_1
+            x: 0
+            y: 100
+            height: 200
+            width: 200
+            z: 10
+        }
+
 
         Image
         {
@@ -39,16 +140,34 @@ ApplicationWindow {
             width: 200
             anchors.right: img_background.right
             anchors.verticalCenter: img_background.verticalCenter
+            visible: false
+
 
             MouseArea
             {
                 id: ma_tv
-                anchors.fill: parent
+                x: 15
+                y: 55
+                width: 163 - x
+                height: 162 - y
 
                 onClicked:
                 {
                     console.log("x = " + mouseX)
                     console.log("y = " + mouseY)
+                }
+
+                Camera
+                {
+                    id: camera
+                }
+
+                VideoOutput
+                {
+                    id: vo_tv
+                    anchors.fill: parent
+                    source: camera
+                    visible: false
                 }
             }
         }
