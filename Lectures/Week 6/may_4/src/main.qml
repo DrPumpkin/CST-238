@@ -51,7 +51,7 @@ ApplicationWindow {
             anchors.right: big_wrapper.right
         }
 
-        SequentialAnimation
+        ParallelAnimation
         {
             id: sa_dance
             running: true
@@ -190,11 +190,11 @@ ApplicationWindow {
         anchors.centerIn: parent
         width: 160; height: 80
         system: ps_fire
-        emitRate: 10
-        lifeSpan: 1000
+        emitRate: 200
+        lifeSpan: 5000
         lifeSpanVariation: 500
-        size: 16
-        endSize: 32
+        size: 52
+        endSize: 102
     }
 
     }

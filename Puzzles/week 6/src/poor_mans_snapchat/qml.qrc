@@ -1,0 +1,10 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>../../img/camera.png</file>
+        <file>../../sound_effects/shutter_camera.mp3</file>
+        <file>../../img/crayon.png</file>
+        <file>../../img/pen.png</file>
+        <file>../../img/text.png</file>
+    </qresource>
+</RCC>
