@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>CameraDialog.qml</file>
+    </qresource>
+</RCC>
