@@ -27,7 +27,25 @@ ApplicationWindow {
             opacity: 1
             anchors.right: big_wrapper.right
             anchors.rightMargin: 20
-            z: 2
+            z: 4
+
+            MouseArea
+            {
+                id: ma_mousearea_crayon
+                anchors.fill: parent
+
+                onPressed:
+                {
+                    img_crayon.opacity = 0.2
+                }
+
+                onReleased:
+                {
+                    img_crayon.opacity = 1
+                }
+
+                preventStealing: false
+            }
         }
 
         Image
@@ -39,7 +57,25 @@ ApplicationWindow {
             opacity: 1
             anchors.right: img_crayon.left
             anchors.rightMargin: 20
-            z: 2
+            z: 4
+
+            MouseArea
+            {
+                id: ma_mousearea_text
+                anchors.fill: parent
+
+                onPressed:
+                {
+                    img_text.opacity = 0.2
+                }
+
+                onReleased:
+                {
+                    img_text.opacity = 1
+                }
+
+                preventStealing: false
+            }
         }
 
         Image
@@ -51,18 +87,25 @@ ApplicationWindow {
             opacity: 1
             anchors.right: img_text.left
             anchors.rightMargin: 20
-            z: 2
-        }
+            z: 4
 
-        Camera
-        {
-            id: cam_selfie
-        }
+            MouseArea
+            {
+                id: ma_mousearea_pen
+                anchors.fill: parent
 
-        VideoOutput
-        {
-            anchors.fill: parent
-            source: cam_selfie
+                onPressed:
+                {
+                    img_pen.opacity = 0.2
+                }
+
+                onReleased:
+                {
+                    img_pen.opacity = 1
+                }
+
+                preventStealing: false
+            }
         }
 
         Canvas
@@ -74,32 +117,20 @@ ApplicationWindow {
 
             onPaint:
             {
-                var ctx = getContext("2d")
-
-                ctx.fillStyle = "red"
-                ctx.lineCap = "round"
-                ctx.fillRect(xpos-1, ypos-1, 25, 25)
 
             }
+
             MouseArea{
                 anchors.fill: parent
                 onPressed: {
-                    xpos = mouseX
-                    ypos = mouseY
-                    canvas_canvas.requestPaint()
+
                 }
                 onMouseXChanged: {
-                    xpos = mouseX
-                    ypos = mouseY
-                    canvas_canvas.requestPaint()
+
                 }
                 onMouseYChanged: {
-                    xpos = mouseX
-                    ypos = mouseY
-                    canvas_canvas.requestPaint()
-                }
 
-                preventStealing: true
+                }
             }
         }
 
@@ -132,13 +163,6 @@ ApplicationWindow {
                     img_camera.opacity = 1
                 }
 
-                onClicked:
-                {
-                    se_shutter_camera.play()
-                    cam_selfie.imageCapture.captureToLocation("profile_pic")
-                    //cam_selfie.imageCapture.capture()
-                }
-
                 preventStealing: false
             }
         }
@@ -149,8 +173,6 @@ ApplicationWindow {
             id: se_shutter_camera
             source: "../../sound_effects/shutter_camera.mp3"
         }
-
-
     }
 
 }
