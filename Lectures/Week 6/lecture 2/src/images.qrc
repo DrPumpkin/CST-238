@@ -1,0 +1,9 @@
+<RCC>
+    <qresource prefix="/">
+        <file>bird.jpg</file>
+        <file>cat.jpg</file>
+        <file>close.png</file>
+        <file>gallery_background.jpg</file>
+        <file>puppy.jpg</file>
+    </qresource>
+</RCC>
