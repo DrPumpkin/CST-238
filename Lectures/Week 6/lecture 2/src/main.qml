@@ -80,6 +80,7 @@ Window {
             {
                 homeScreenLoader.active = true; //load homescreen
                 galleryLoader.active = false; // unload gallerView
+                connectionToGalleryView.target = null
             }
         }
     }
