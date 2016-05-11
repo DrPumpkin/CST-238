@@ -1,0 +1,8 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>ButtonTray.qml</file>
+        <file>NumberItem.qml</file>
+        <file>Sort.js</file>
+    </qresource>
+</RCC>
