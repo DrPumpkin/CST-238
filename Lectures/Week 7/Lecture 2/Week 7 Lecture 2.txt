@@ -1,0 +1,2 @@
+Today we spent the entire day doing a live coding demo. We focused on teaching C++ and Qt/Qml.
+This was accomplished by taking the source from Lecture 1 (used Workerscript) and converted it to C++ threading model.
