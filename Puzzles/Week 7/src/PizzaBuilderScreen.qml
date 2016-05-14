@@ -47,7 +47,7 @@ Rectangle {
             listData.append({"name":"Anchovies"})
             listData.append({"name":"Tomatoes"})
             listData.append({"name":"Pineapple"})
-            listData.append({"name":"You Choice"})
+            listData.append({"name":"Your Choice"})
         }
     }
 

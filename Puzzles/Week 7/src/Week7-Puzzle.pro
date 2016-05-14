@@ -5,8 +5,7 @@ CONFIG += c++11
 
 SOURCES += main.cpp \
     pizzaprovider.cpp \
-    pizzabuilder.cpp \
-    test.cpp
+    pizzabuilder.cpp
 
 RESOURCES += qml.qrc \
     images.qrc
@@ -19,6 +18,5 @@ include(deployment.pri)
 
 HEADERS += \
     pizzabuilder.h \
-    test.h \
     pizzaprovider.h \
     asyncpizzaresponse.h

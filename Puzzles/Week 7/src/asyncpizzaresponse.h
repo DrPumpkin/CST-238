@@ -13,8 +13,6 @@
  *      1.)Render Pizza in a 523,528 (pizza size) QImage
  *      2.)For each topping in the topping list, load and
  *          paint the toppings.
- *
- *
  * *****************************************************/
 class AsyncPizzaResponse : public QQuickImageResponse, public QRunnable
 {
