@@ -19,7 +19,7 @@ int main(int argc, char *argv[])
 	*********************************************************************/
 	
     // uncomment this line to connect the PizzaBuilder
-   // engine.rootContext()->setContextProperty("PizzaBuilder", &builder);
+    engine.rootContext()->setContextProperty("PizzaBuilder", &builder);
     engine.load(QUrl(QStringLiteral("qrc:/main.qml")));
 
     return app.exec();
